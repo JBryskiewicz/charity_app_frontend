@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "jest"
   },
   "dependencies": {
     "@types/node": "20.3.2",
@@ -23,6 +24,7 @@
     "typescript": "5.1.3"
   },
   "devDependencies": {
+    "jest": "^29.5.0",
     "sass": "^1.63.6",
     "scss": "^0.2.4"
   }
