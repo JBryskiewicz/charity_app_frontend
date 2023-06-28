@@ -1,28 +1,36 @@
 import {Header} from "@/components/Header";
+import {Hero} from "@/components/Hero";
+import statBg from "@/assets/images/stat-background-2x.png"
 
 export default function Home() {
     return (
         <div>
             <main className="hero">
                 <Header/>
-                <section className="flex flex-col items-end justify-center mx-32 hero-section">
-                    <div className="flex flex-col items-center justify-center pr-64 pb-28">
-                        <div className="flex flex-col items-center mb-6">
-                            <h1 className="text-4xl">Zacznij pomagać!</h1>
-                            <p className="text-4xl">Oddaj niechciane rzeczy w zaufane ręce</p>
-                        </div>
-                        <img
-                            src="../public/images/decoration-2x.png"
-                            alt="decoration-image"
-                            className="mb-12"
-                        />
-                        <div className="flex gap-4">
-                            <button className="btn btn-hero">ODDAJ RZECZY</button>
-                            <button className="btn btn-hero">ZORGANIZUJ ZBIÓRKĘ</button>
-                        </div>
-                    </div>
-                </section>
+                <Hero/>
             </main>
+            <section className="flex flex-col justify-around items-center statistics">
+                <div
+                    className="flex statistics-background"
+                    style={{backgroundImage: `url(${statBg.src})`}}
+                >
+                    <div className="statistics-container">
+                        <h2 className="text-6xl text-font-color mb-6">10</h2>
+                        <p className="text-2xl text-font-color mb-6">oddanych worków</p>
+                        <p className="text-font-color stat-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    </div>
+                    <div className="statistics-container">
+                        <h2 className="text-6xl text-font-color mb-6">5</h2>
+                        <p className="text-2xl text-font-color mb-6">wspartych organizacji</p>
+                        <p className="text-font-color stat-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    </div>
+                    <div className="statistics-container">
+                        <h2 className="text-6xl text-font-color mb-6">7</h2>
+                        <p className="text-2xl text-font-color mb-6">zorganizowanych zbiórek</p>
+                        <p className="text-font-color stat-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    </div>
+                </div>
+            </section>
         </div>
     )
 }

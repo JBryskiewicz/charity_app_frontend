@@ -1,0 +1,21 @@
+.statistics {
+
+  &-background {
+    background-size: contain;
+    max-width: 100%;
+    min-height: 384px;
+    max-height: 384px;
+  }
+
+  &-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 8rem;
+
+    .stat-description {
+      text-align: center;
+    }
+  }
+}
