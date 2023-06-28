@@ -1,0 +1,26 @@
+.btn-header {
+  padding: .5rem;
+}
+
+.login {
+  color: $secondary_color;
+  border: 1px solid white;
+  border-radius: 4px;
+
+  &:hover {
+    border: 1px solid $accent_color;
+    transition: 0.75s;
+  }
+}
+
+.navigational {
+  border: 1px solid white;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+
+  &:hover {
+    border: 1px solid $font_color;
+    transition: 0.75s;
+  }
+}
+
