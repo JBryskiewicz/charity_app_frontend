@@ -1,0 +1,7 @@
+.hero {
+  background-image: url('../../public/images/hero-image.jpg');
+
+  &-section {
+    height: calc(100vh - 120px);
+  }
+}
