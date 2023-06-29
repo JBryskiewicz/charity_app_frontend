@@ -1,5 +1,5 @@
 import background from "@/assets/images/hero-image.jpg";
-import decoration from "@/assets/images/decoration-2x.png";
+import {DecorativeImage} from "@/components/DecorativeImage";
 
 export function Hero() {
     return (
@@ -14,11 +14,7 @@ export function Hero() {
                     <h1 className="text-4xl">Zacznij pomagać!</h1>
                     <p className="text-4xl">Oddaj niechciane rzeczy w zaufane ręce</p>
                 </div>
-                <img
-                    src={decoration.src}
-                    alt="decoration-image"
-                    className="mb-12 w-1/2"
-                />
+                <DecorativeImage/>
                 <div className="flex gap-4">
                     <button className="btn btn-hero">ODDAJ RZECZY</button>
                     <button className="btn btn-hero">ZORGANIZUJ ZBIÓRKĘ</button>
