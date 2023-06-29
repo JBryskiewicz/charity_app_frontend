@@ -8,7 +8,7 @@ export function DecorativeImage({ className }: Props) {
         <img
             src={decoration.src}
             alt="decoration image"
-            className={`mb-12 w-1/2 ${className}`}
+            className={className}
         />
     );
 }

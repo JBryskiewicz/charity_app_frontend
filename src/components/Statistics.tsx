@@ -2,7 +2,7 @@ import statBg from "@/assets/images/stat-background-2x.png";
 
 export function Statistics() {
     return (
-        <section className="flex flex-col justify-around items-center statistics">
+        <section className="flex flex-col justify-around items-center statistics" id="stats">
             <div
                 className="flex statistics-background"
                 style={{backgroundImage: `url(${statBg.src})`}}

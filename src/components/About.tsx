@@ -4,7 +4,7 @@ import people from "@/assets/images/people2x.png";
 
 export function About() {
     return (
-        <section className="flex about">
+        <section className="flex about" id="about">
             <div className="flex flex-col justify-center items-center about-container">
                 <h3>O nas</h3>
                 <DecorativeImage className={'about-decoration'}/>

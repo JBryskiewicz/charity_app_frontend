@@ -14,7 +14,7 @@ export function Hero() {
                     <h1 className="text-4xl">Zacznij pomagać!</h1>
                     <p className="text-4xl">Oddaj niechciane rzeczy w zaufane ręce</p>
                 </div>
-                <DecorativeImage/>
+                <DecorativeImage className={'mb-12 w-1/2'}/>
                 <div className="flex gap-4">
                     <button className="btn btn-hero">ODDAJ RZECZY</button>
                     <button className="btn btn-hero">ZORGANIZUJ ZBIÓRKĘ</button>

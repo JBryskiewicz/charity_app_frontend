@@ -8,16 +8,16 @@ export function Header() {
             <nav>
                 <ul className="flex justify-end gap-8 text-lg">
                     <li className="btn navigational">
-                        <a href={"#"}>Start</a>
+                        <a href={"#start"}>Start</a>
                     </li>
                     <li className="btn navigational">
-                        <a href={"#"}>O co chodzi?</a>
+                        <a href={"#stats"}>O co chodzi?</a>
                     </li>
                     <li className="btn navigational">
-                        <a href={"#"}>O nas</a>
+                        <a href={"#about"}>O nas</a>
                     </li>
                     <li className="btn navigational">
-                        <a href={"#"}>Fundacje i organizacje</a>
+                        <a href={"#foundations"}>Fundacje i organizacje</a>
                     </li>
                     <li className="btn navigational">
                         <a href={"#"}>Kontakt</a>

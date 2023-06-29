@@ -8,9 +8,9 @@ export function Steps() {
         <section className="flex flex-col justify-center items-center mt-14">
             <div className="flex flex-col items-center">
                 <h2 className="text-4xl mb-6">Wystarczają 4 proste kroki</h2>
-                <DecorativeImage/>
+                <DecorativeImage className={'mb-12 w-1/2'}/>
             </div>
-            <div className="flex justify-around w-full h-96 steps">
+            <div className="flex justify-around w-full h-80 steps">
                 <div className="steps-container">
                     <img
                         src={shirt.src}
