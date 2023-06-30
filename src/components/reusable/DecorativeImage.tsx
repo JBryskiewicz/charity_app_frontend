@@ -1,12 +1,13 @@
 import decoration from "@/assets/images/decoration-2x.png";
+import Image from "next/image";
 
 type Props = {
     className?: string
 }
 export function DecorativeImage({ className }: Props) {
     return (
-        <img
-            src={decoration.src}
+        <Image
+            src={decoration}
             alt="decoration image"
             className={className}
         />

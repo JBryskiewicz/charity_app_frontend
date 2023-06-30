@@ -1,4 +1,4 @@
-import {DecorativeImage} from "@/components/DecorativeImage";
+import {DecorativeImage} from "@/components/reusable/DecorativeImage";
 import signature from "@/assets/images/Signature2x.png";
 import people from "@/assets/images/people2x.png";
 

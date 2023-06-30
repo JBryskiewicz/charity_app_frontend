@@ -1,7 +1,7 @@
 'use client'
 import {useEffect, useState} from "react";
-import {DecorativeImage} from "@/components/DecorativeImage";
-import {FoundationsList} from "@/components/FoundationsList";
+import {DecorativeImage} from "@/components/reusable/DecorativeImage";
+import {FoundationsList} from "@/components/homepage/FoundationsList";
 import {Charity} from "@/utility/types";
 import {foundationList, institutionList, localsList} from "@/utility/mockData";
 

@@ -6,11 +6,15 @@
 @import "./settings/colors";
 @import "./settings/buttons";
 
-@import "./components/hero";
-@import "./components/header";
-@import "./components/statistics";
-@import "./components/steps";
-@import "./components/about";
-@import "./components/foundations";
-@import "./components/contact";
-@import "./components/footer";
+@import "components/reusable/header";
+@import "components/reusable/footer";
+
+@import "components/homepage/hero";
+@import "components/homepage/statistics";
+@import "components/homepage/steps";
+@import "components/homepage/about";
+@import "components/homepage/foundations";
+@import "components/homepage/contact";
+
+@import "components/login/login";
+

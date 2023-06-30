@@ -1,5 +1,5 @@
 import {Charity} from "@/utility/types";
-import React, {useEffect, useState} from "react";
+import React, {useCallback, useEffect, useState} from "react";
 
 type Props = {
     list: Charity[];
@@ -14,7 +14,7 @@ export function FoundationsList({ list, tab }: Props) {
         setSlicers([0, 3]);
     }, [tab])
 
-    function handlePageSwitch(index: number){
+    const handlePageSwitch = (index: number) => () => {
         index === 1 ? setSlicers([0, 3]) : setSlicers([3 * (index - 1), 3 * index]);
     }
 
@@ -47,7 +47,7 @@ export function FoundationsList({ list, tab }: Props) {
                         <button
                             key={index + 1}
                             className="btn btn-f-list"
-                            onClick={() => handlePageSwitch(index + 1)}
+                            onClick={handlePageSwitch(index + 1)}
                         >
                             {index + 1}
                         </button>

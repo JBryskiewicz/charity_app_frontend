@@ -1,0 +1,25 @@
+.login-box {
+  height: calc(100vh - 120px);
+  color: $font_color;
+  padding-bottom: 240px;
+
+  .login-form {
+    width: 385px;
+    height: 235px;
+    background-color: rgba($secondary_color, .15);
+    border-radius: 4px;
+    padding: 0 3rem;
+
+    input {
+      width: 100%;
+      padding: .25rem;
+      background-color: rgba(#fff, 0);
+      border-bottom: 2px solid rgba($font_color, .66);
+      margin-bottom: 1rem;
+
+      &::placeholder {
+        color: rgba($font_color, .5);
+      }
+    }
+  }
+}

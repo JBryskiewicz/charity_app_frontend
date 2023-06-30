@@ -2,7 +2,7 @@ import shirt from "@/assets/images/Icon_shirt@2x.png";
 import bag from "@/assets/images/Icon_bag@2x.png";
 import glass from "@/assets/images/Icon_glass@2x.png";
 import circle from "@/assets/images/Icon_circle@2x.png";
-import {DecorativeImage} from "@/components/DecorativeImage";
+import {DecorativeImage} from "@/components/reusable/DecorativeImage";
 export function Steps() {
     return (
         <section className="flex flex-col justify-center items-center mt-14">
