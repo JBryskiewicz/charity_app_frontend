@@ -1,5 +1,5 @@
 import {Charity} from "@/utility/types";
-import React, {useCallback, useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 
 type Props = {
     list: Charity[];
