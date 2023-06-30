@@ -1,11 +1,13 @@
 import background from "@/assets/images/hero-image.jpg";
-import {DecorativeImage} from "@/components/DecorativeImage";
+import {DecorativeImage} from "@/components/reusable/DecorativeImage";
+import Image from "next/image";
+import Link from "next/link";
 
 export function Hero() {
     return (
         <section className="flex flex-col items-end justify-center mx-32 hero-section">
-            <img
-                src={background.src}
+            <Image
+                src={background}
                 alt="background image"
                 className="hero-background"
             />
@@ -16,8 +18,8 @@ export function Hero() {
                 </div>
                 <DecorativeImage className={'mb-12 w-1/2'}/>
                 <div className="flex gap-4">
-                    <button className="btn btn-hero">ODDAJ RZECZY</button>
-                    <button className="btn btn-hero">ZORGANIZUJ ZBIÓRKĘ</button>
+                    <Link href="/login"><button className="btn btn-hero">ODDAJ RZECZY</button></Link>
+                    <Link href="/login"><button className="btn btn-hero">ZORGANIZUJ ZBIÓRKĘ</button></Link>
                 </div>
             </div>
         </section>

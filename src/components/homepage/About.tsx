@@ -1,6 +1,7 @@
-import {DecorativeImage} from "@/components/DecorativeImage";
+import {DecorativeImage} from "@/components/reusable/DecorativeImage";
 import signature from "@/assets/images/Signature2x.png";
 import people from "@/assets/images/people2x.png";
+import Image from "next/image";
 
 export function About() {
     return (
@@ -11,16 +12,17 @@ export function About() {
                 <p className="text-center px-40 about-paragraph">Nori grape silver beet broccoli kombu beet greens
                     fava bean potato quandong celery. Bunya nuts black-eyed pea prairie turnip leek lentil turnip
                     greens parsnip.</p>
-                <img
-                    src={signature.src}
+                <Image
+                    src={signature}
                     alt="signature"
                     className="about-signature"
                 />
             </div>
             <div className="about-container">
-                <img
-                    src={people.src}
+                <Image
+                    src={people}
                     alt="group of people"
+                    className="about-container-image"
                 />
             </div>
         </section>

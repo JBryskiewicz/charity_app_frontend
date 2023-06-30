@@ -4,7 +4,7 @@
   border-radius: 4px;
 }
 
-.login {
+.login-action {
   color: $secondary_color;
 
   &:hover {
@@ -72,4 +72,14 @@
   height: 50px;
   font-size: 1.125rem;
   border-color: $font_color;
+}
+
+.btn-login {
+  border-color: $font_color;
+  padding: .625rem 1rem;
+
+  &:hover {
+    background-color: rgba($accent_color, 0.1);
+    transition: .75s;
+  }
 }

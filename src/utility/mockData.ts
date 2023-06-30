@@ -29,6 +29,36 @@ export const foundationList = [
         goal: 'Pomoc osobom znajdującym się w trudnej sytuacji życiowej',
         tags: ['ubrania', 'jedzenie', 'AGD', 'meble', 'zabawki']
     },
+    {
+        name: 'Fundacja "Dbam o Zdrowie 1"',
+        goal: 'Pomoc osobom znajdującym się w trudnej sytuacji życiowej',
+        tags: ['ubrania', 'jedzenie', 'AGD', 'meble', 'zabawki']
+    },
+    {
+        name: 'Fundacja "Dla dzieci 1"',
+        goal: 'Pomoc dzieciom z ubogich rodzin',
+        tags: ['ubrania', 'meble', 'zabawki']
+    },
+    {
+        name: 'Fundacja "Bez domu 1"',
+        goal: 'Pomoc dla osób nie posiadających miejsca zamieszkania',
+        tags: ['ubrania', 'jedzenie', 'ciepłe koce']
+    },
+    {
+        name: 'Fundacja "Bez domu 2"',
+        goal: 'Pomoc dla osób nie posiadających miejsca zamieszkania',
+        tags: ['ubrania', 'jedzenie', 'ciepłe koce']
+    },
+    {
+        name: 'Fundacja "Dla dzieci 2"',
+        goal: 'Pomoc dzieciom z ubogich rodzin',
+        tags: ['ubrania', 'meble', 'zabawki']
+    },
+    {
+        name: 'Fundacja "Dbam o Zdrowie 2"',
+        goal: 'Pomoc osobom znajdującym się w trudnej sytuacji życiowej',
+        tags: ['ubrania', 'jedzenie', 'AGD', 'meble', 'zabawki']
+    },
 ]
 
 export const institutionList = [

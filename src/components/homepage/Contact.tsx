@@ -1,8 +1,9 @@
 'use client'
-import {DecorativeImage} from "@/components/DecorativeImage";
+import {DecorativeImage} from "@/components/reusable/DecorativeImage";
 import bgContact from "@/assets/images/background_contact.png";
-import {Footer} from "@/components/Footer";
+import {Footer} from "@/components/reusable/Footer";
 import React, {useState} from "react";
+import Image from "next/image";
 
 const TEXTAREA_PLACEHOLDER = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
 
@@ -19,9 +20,9 @@ export function Contact() {
     }
 
     return (
-        <section className="flex justify-end items-center contact">
-            <img
-                src={bgContact.src}
+        <section className="flex justify-end items-center contact" id="contact">
+            <Image
+                src={bgContact}
                 alt="background image - contact section"
                 className="contact-background"
             />
