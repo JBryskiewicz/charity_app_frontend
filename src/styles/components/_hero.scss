@@ -1,0 +1,13 @@
+.hero {
+
+  &-section {
+    height: calc(100vh - 120px);
+  }
+
+  &-background {
+    height: calc(100vh - 120px);
+    position: absolute;
+    left: -22.5%;
+    z-index: -1;
+  }
+}

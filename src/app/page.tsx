@@ -1,11 +1,23 @@
-import Image from 'next/image'
+import {Header} from "@/components/Header";
+import {Hero} from "@/components/Hero";
+import {Statistics} from "@/components/Statistics";
+import {Steps} from "@/components/Steps";
+import {About} from "@/components/About";
+import {Foundations} from "@/components/Foundations";
+import {Contact} from "@/components/Contact";
 
 export default function Home() {
-  return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-
-      </div>
-    </main>
-  )
+    return (
+        <div style={{overflow: 'hidden'}}>
+            <main className="hero" id="start">
+                <Header/>
+                <Hero/>
+            </main>
+            <Statistics/>
+            <Steps/>
+            <About/>
+            <Foundations/>
+            <Contact/>
+        </div>
+    )
 }
