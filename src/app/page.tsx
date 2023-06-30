@@ -4,10 +4,11 @@ import {Statistics} from "@/components/Statistics";
 import {Steps} from "@/components/Steps";
 import {About} from "@/components/About";
 import {Foundations} from "@/components/Foundations";
+import {Contact} from "@/components/Contact";
 
 export default function Home() {
     return (
-        <>
+        <div style={{overflow: 'hidden'}}>
             <main className="hero" id="start">
                 <Header/>
                 <Hero/>
@@ -16,6 +17,7 @@ export default function Home() {
             <Steps/>
             <About/>
             <Foundations/>
-        </>
+            <Contact/>
+        </div>
     )
 }
