@@ -25,7 +25,7 @@ export function Contact() {
                 alt="background image - contact section"
                 className="contact-background"
             />
-            <div className="h-full w-1/2 flex flex-col justify-center items-center gap-8 mx-32 contact-box">
+            <div className="h-full w-1/2 flex flex-col justify-center items-center gap-8 mx-32 pl-64 contact-box">
                 <h5 className="text-4xl">Skontaktuj się z nami</h5>
                 <DecorativeImage className={'mb-8 contact-decorative-img'}/>
                 <form onSubmit={handleSubmit} className="contact-form">
