@@ -17,6 +17,10 @@
       height: 1px;
       background-color: $font_color;
     }
+
+    &:last-child::before {
+      display: none;
+    }
   }
 
   &-list-name {

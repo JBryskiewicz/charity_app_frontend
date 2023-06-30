@@ -10,16 +10,18 @@ export function Foundations() {
     const [charity, setCharity] = useState<Charity[]>(foundationList);
 
     useEffect(() => {
-        if(tab === 0) {
-            setCharity(foundationList);
-        }
-
-        if(tab === 1) {
-            setCharity(institutionList);
-        }
-
-        if(tab === 2) {
-            setCharity(localsList);
+        switch (tab) {
+            case 0:
+                setCharity(foundationList);
+                break;
+            case 1:
+                setCharity(institutionList);
+                break;
+            case 2:
+                setCharity(localsList);
+                break;
+            default:
+                console.log('Tab does not exist');
         }
     }, [tab]);
 
@@ -53,7 +55,7 @@ export function Foundations() {
                 W naszej bazie znajdziesz listę zweryfikowanych Fundacji, z którymi współpracujemy.
                 Możesz sprawdzić czym się zajmują, komu pomagają i czego potrzebują.
             </p>
-            <FoundationsList list={charity}/>
+            <FoundationsList list={charity} tab={tab}/>
         </section>
     );
 }
