@@ -9,3 +9,8 @@ export type ContactFormValues = {
     email: string;
     message: string;
 }
+
+export type LoginFormValues = {
+    email: string;
+    password: string;
+}

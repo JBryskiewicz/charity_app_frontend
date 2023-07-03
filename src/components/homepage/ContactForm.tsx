@@ -44,6 +44,7 @@ export function ContactForm() {
                                 Wpisz swoje imię:
                             </label>
                             <Field
+                                id="name"
                                 name="name"
                                 type="text"
                                 placeholder="Krzysztof"
