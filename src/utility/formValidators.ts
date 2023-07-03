@@ -20,3 +20,18 @@ export const LoginValidationSchema = Yup.object({
         .required('Hasło jest wymagane')
         .matches(/^\S*$/, 'Hasło nie może zawierać spacji')
 });
+
+export const RegisterValidationSchema = Yup.object({
+    email: Yup.string()
+        .email('Nieprawidłowy adress e-mail')
+        .required('Adres email jest wymagany'),
+    password: Yup.string()
+        .min(6, 'Hasło jest za krótkie')
+        .required('Hasło jest wymagane')
+        .matches(/^\S*$/, 'Hasło nie może zawierać spacji'),
+    confirmPassword: Yup.string()
+        .min(6, 'Hasło jest za krótkie')
+        .required('Hasło jest wymagane')
+        .matches(/^\S*$/, 'Hasło nie może zawierać spacji')
+        .oneOf([Yup.ref('password')], 'Podane hasła są różne')
+});
