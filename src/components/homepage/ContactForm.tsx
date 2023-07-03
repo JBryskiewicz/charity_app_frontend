@@ -1,39 +1,35 @@
 'use client'
-import * as Yup from "yup";
 import React from "react";
 import {ErrorMessage, Field, Formik, FormikHelpers} from "formik";
+import {contactValidationSchema} from "@/utility/formValidators";
+import {ContactFormValues} from "@/utility/types";
+import {CONTACT_MESSAGE_URL} from "@/utility/endPoints";
+import axios from "axios";
 
 const TEXTAREA_PLACEHOLDER = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
 
-const contactValidationSchema = Yup.object({
-    name: Yup.string()
-        .required('Imię jest wymagane')
-        .matches(/^\S+$/, 'Imię musi być jednym wyrazem'),
-    email: Yup.string()
-        .email('Nieprawidłowy adress e-mail')
-        .required('Adres email jest wymagany'),
-    message: Yup.string()
-        .min(130, 'wiadomośc nie może być krótsza niż 130 znaków')
-});
-
-type FormValues = {
-    name: string;
-    email: string;
-    message: string;
+const initialValues: ContactFormValues = {
+    name: '',
+    email: '',
+    message: ''
 }
 
 export function ContactForm() {
 
-    async function handleSubmit(values: FormValues, {setSubmitting, setStatus, resetForm}: FormikHelpers<FormValues>) {
-        console.log(values);
+    async function postContactMessage(data: ContactFormValues) {
+        await axios.post<ContactFormValues>(CONTACT_MESSAGE_URL, data);
+    }
+
+    async function handleSubmit(values: ContactFormValues, {setSubmitting, setStatus, resetForm}: FormikHelpers<ContactFormValues>) {
+        await postContactMessage(values);
+        resetForm({ values: initialValues });
         setStatus('Wiadomość wysłana pomyślnie');
-        resetForm();
         setSubmitting(false);
     }
 
     return (
         <Formik
-            initialValues={{name: '', email: '', message: ''}}
+            initialValues={initialValues}
             validationSchema={contactValidationSchema}
             onSubmit={handleSubmit}
         >

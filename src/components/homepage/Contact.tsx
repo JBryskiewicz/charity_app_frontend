@@ -6,9 +6,6 @@ import Image from "next/image";
 import {ContactForm} from "@/components/homepage/ContactForm";
 
 export function Contact() {
-
-
-
     return (
         <section className="flex justify-end items-center contact" id="contact">
             <Image

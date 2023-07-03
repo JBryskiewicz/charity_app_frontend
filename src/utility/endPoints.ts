@@ -1,0 +1,1 @@
+export const CONTACT_MESSAGE_URL = 'https://fer-api.coderslab.pl/v1/portfolio/contact';
