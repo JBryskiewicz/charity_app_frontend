@@ -30,5 +30,13 @@
       padding: .5rem;
       background-color: rgba(#fff, 0);
     }
+
+    &-success {
+      color: darkgreen;
+    }
+
+    &-error {
+      color: darkred;
+    }
   }
 }

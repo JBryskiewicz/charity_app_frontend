@@ -3,3 +3,9 @@ export type Charity = {
     goal: string;
     tags: string[];
 }
+
+export type ContactFormValues = {
+    name: string;
+    email: string;
+    message: string;
+}
