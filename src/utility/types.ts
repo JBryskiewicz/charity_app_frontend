@@ -14,3 +14,7 @@ export type LoginFormValues = {
     email: string;
     password: string;
 }
+
+export interface RegisterFormValues extends LoginFormValues {
+    confirmPassword: string;
+}
