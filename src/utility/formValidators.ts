@@ -8,6 +8,7 @@ export const contactValidationSchema = Yup.object({
         .email('Nieprawidłowy adress e-mail')
         .required('Adres email jest wymagany'),
     message: Yup.string()
+        .required('Wiadomość nie może być pusta')
         .min(120, 'wiadomośc nie może być krótsza niż 120 znaków')
 });
 

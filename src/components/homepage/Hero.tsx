@@ -1,9 +1,16 @@
+'use client'
 import background from "@/assets/images/hero-image.jpg";
 import {DecorativeImage} from "@/components/reusable/DecorativeImage";
 import Image from "next/image";
 import Link from "next/link";
+import {useAuthState} from "react-firebase-hooks/auth";
+import {auth} from "@/firebase";
 
 export function Hero() {
+    const [ user ] = useAuthState(auth);
+
+    const path = user === null ? '/login' : '/oddaj-rzeczy';
+
     return (
         <section className="flex flex-col items-end justify-center mx-32 hero-section">
             <Image
@@ -18,8 +25,8 @@ export function Hero() {
                 </div>
                 <DecorativeImage className={'mb-12 w-1/2'}/>
                 <div className="flex gap-4">
-                    <Link href="/login"><button className="btn btn-hero">ODDAJ RZECZY</button></Link>
-                    <Link href="/login"><button className="btn btn-hero">ZORGANIZUJ ZBIÓRKĘ</button></Link>
+                    <Link href={path}><button className="btn btn-hero">ODDAJ RZECZY</button></Link>
+                    <Link href={path}><button className="btn btn-hero">ZORGANIZUJ ZBIÓRKĘ</button></Link>
                 </div>
             </div>
         </section>

@@ -4,13 +4,19 @@ import {ErrorMessage, Field, Formik, FormikHelpers} from "formik";
 import Link from "next/link";
 import React from "react";
 import {RegisterFormValues} from "@/utility/types";
+import {auth} from "@/firebase";
+import {useRouter} from "next/navigation";
+import {useCreateUserWithEmailAndPassword} from "react-firebase-hooks/auth";
 
 export function RegisterForm() {
+    const router = useRouter();
+    const [createUserWithEmailAndPassword] = useCreateUserWithEmailAndPassword(auth);
 
-    function handleSubmit(values: RegisterFormValues, {setSubmitting, resetForm}: FormikHelpers<RegisterFormValues>) {
-        console.log(values);
+    async function handleSubmit(values: RegisterFormValues, {setSubmitting, resetForm}: FormikHelpers<RegisterFormValues>) {
+        await createUserWithEmailAndPassword( values.email, values.password);
         resetForm();
         setSubmitting(false);
+        await router.push('/login');
     }
 
     return (

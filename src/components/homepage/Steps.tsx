@@ -1,3 +1,4 @@
+'use client'
 import shirt from "@/assets/images/Icon_shirt@2x.png";
 import bag from "@/assets/images/Icon_bag@2x.png";
 import glass from "@/assets/images/Icon_glass@2x.png";
@@ -5,8 +6,14 @@ import circle from "@/assets/images/Icon_circle@2x.png";
 import {DecorativeImage} from "@/components/reusable/DecorativeImage";
 import {StepsImage} from "@/components/reusable/StepsImage";
 import Link from "next/link";
+import {useAuthState} from "react-firebase-hooks/auth";
+import {auth} from "@/firebase";
 
 export function Steps() {
+    const [ user ] = useAuthState(auth);
+
+    const path = user === null ? '/login' : '/oddaj-rzeczy';
+
     return (
         <section className="flex flex-col justify-center items-center mt-14">
             <div className="flex flex-col items-center">
@@ -36,7 +43,7 @@ export function Steps() {
                 </div>
             </div>
             <div className="mb-20">
-                <Link href="/login"><button className="btn btn-hero">ODDAJ RZECZY</button></Link>
+                <Link href={path}><button className="btn btn-hero">ODDAJ RZECZY</button></Link>
             </div>
         </section>
     );
