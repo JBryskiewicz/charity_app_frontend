@@ -4,13 +4,18 @@ import React from "react";
 import {ErrorMessage, Field, Formik, FormikHelpers} from "formik";
 import {LoginFormValues} from "@/utility/types";
 import {LoginValidationSchema} from "@/utility/formValidators";
+import {useRouter} from "next/navigation";
+import {useSignInWithEmailAndPassword} from "react-firebase-hooks/auth";
+import {auth} from "@/firebase";
 
 export function LoginForm() {
-
-    function handleSubmit(values: LoginFormValues, {setSubmitting, resetForm}: FormikHelpers<LoginFormValues>) {
-        console.log(values);
+    const router = useRouter();
+    const [ signInWithEmailAndPassword ] = useSignInWithEmailAndPassword(auth);
+    async function handleSubmit(values: LoginFormValues, {setSubmitting, resetForm}: FormikHelpers<LoginFormValues>) {
+        await signInWithEmailAndPassword(values.email, values.password);
         resetForm();
         setSubmitting(false);
+        await router.push('/');
     }
 
     return (
