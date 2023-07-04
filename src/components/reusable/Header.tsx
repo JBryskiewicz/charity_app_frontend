@@ -30,7 +30,7 @@ export function Header({isHome}: Props) {
             <Link href={"/oddaj-rzeczy"}>
                 <button className="btn login-action">Oddaj Rzeczy</button>
             </Link>
-            <Link href={"/login"}>
+            <Link href={"/logged-out"}>
                 <button className="btn login-action" onClick={() => signOut(auth)}>Wyloguj</button>
             </Link>
         </div>
