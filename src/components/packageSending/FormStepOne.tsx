@@ -1,10 +1,15 @@
 'use client'
-import {useState} from "react";
+import {Dispatch, SetStateAction, useState} from "react";
 import {radioOptions} from "@/utility/mockData";
+
+type Props = {
+    step: number;
+    setStep: Dispatch<SetStateAction<number>>
+}
 
 const initialRadios = [false, false, false, false, false]
 
-export function FormStepOne() {
+export function FormStepOne({step, setStep}: Props) {
     const [isChecked, setIsChecked] = useState<boolean[]>(initialRadios);
 
     const handleClick = (index: number) => () => {
@@ -15,7 +20,7 @@ export function FormStepOne() {
 
     return (
         <section className="mx-32 pt-8 package-sending-section">
-            <p className="mb-24">Krok 1/4</p>
+            <p className="mb-24">Krok {step}/4</p>
             <h4 className="text-4xl">Zaznacz co chcesz oddać:</h4>
             <div className="flex flex-col gap-8 mt-16 mb-16">
                 {
@@ -34,7 +39,14 @@ export function FormStepOne() {
                     ))
                 }
             </div>
-            <button className="btn btn-form-steps">Dalej</button>
+            <div className="form-button-box">
+                <button
+                    className="btn btn-form-steps"
+                    onClick={() => setStep(2)}
+                >
+                    Dalej
+                </button>
+            </div>
         </section>
     );
 }

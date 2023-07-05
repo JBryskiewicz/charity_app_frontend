@@ -1,6 +1,7 @@
 .package-sending-section {
   height: calc(100vh - 180px);
   color: $font_color;
+  position: relative;
 
   .radio-label {
     font-size: 1.375rem;
@@ -29,5 +30,18 @@
     &:checked::before {
       background-color: $accent_color;
     }
+  }
+
+  .bag-number {
+    width: 64px;
+    border: 1px solid $font_color;
+    border-radius: 4px;
+    padding-left: .5rem;
+  }
+
+  .form-button-box {
+    position: absolute;
+    bottom: 50px;
+    left: 0;
   }
 }
