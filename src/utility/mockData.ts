@@ -126,3 +126,26 @@ export const localsList = [
         tags: ['ubrania', 'meble', 'zabawki']
     },
 ]
+
+export const radioOptions = [
+    {
+        name: 'cloth-good',
+        description: 'ubrania, które nadają się do ponownego użycia'
+    },
+    {
+        name: 'cloth-bad',
+        description: 'ubrania, do wyrzucenia'
+    },
+    {
+        name: 'toys',
+        description: 'książki'
+    },
+    {
+        name: 'books',
+        description: 'zabawki'
+    },
+    {
+        name: 'other',
+        description: 'inne'
+    },
+]

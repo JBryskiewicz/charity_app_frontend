@@ -83,3 +83,16 @@
     transition: .75s;
   }
 }
+
+.btn-form-steps {
+  font-size: 2rem;
+  width: 180px;
+  height: 80px;
+  border-color: $font_color;
+  padding: .625rem 1rem;
+
+  &:hover {
+    background-color: rgba($accent_color, 0.1);
+    transition: .75s;
+  }
+}

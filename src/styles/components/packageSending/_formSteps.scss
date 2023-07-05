@@ -1,0 +1,33 @@
+.package-sending-section {
+  height: calc(100vh - 180px);
+  color: $font_color;
+
+  .radio-label {
+    font-size: 1.375rem;
+    display: flex;
+    align-items: center;
+  }
+
+  .radio-button {
+    position: relative;
+    appearance: none;
+    -webkit-appearance: none;
+    width: 36px;
+    height: 36px;
+    margin-right: 2rem;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 1px solid $font_color;
+    }
+
+    &:checked::before {
+      background-color: $accent_color;
+    }
+  }
+}

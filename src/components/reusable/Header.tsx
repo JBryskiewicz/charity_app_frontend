@@ -27,7 +27,7 @@ export function Header({isHome}: Props) {
     const userActions = (
         <div className="flex justify-end py-4 gap-8">
             <p className="self-center text-font-color text-lg"> Cześć {user?.email} </p>
-            <Link href={"/oddaj-rzeczy"}>
+            <Link href={"/send-package"}>
                 <button className="btn login-action">Oddaj Rzeczy</button>
             </Link>
             <Link href={"/logged-out"}>
