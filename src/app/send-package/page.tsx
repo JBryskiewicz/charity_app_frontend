@@ -7,6 +7,7 @@ import formBackground from "@/assets/images/form-steps-background.png"
 import {FormWarning} from "@/components/packageSending/FormWarning";
 import {useState} from "react";
 import {FormStepTwo} from "@/components/packageSending/FormStepTwo";
+import {FormStepThree} from "@/components/packageSending/FormStepThree";
 
 function PackageSending() {
     const [step, setStep] = useState<number>(1);
@@ -27,7 +28,7 @@ function PackageSending() {
                         case 2:
                             return <FormStepTwo step={step} setStep={setStep}/>
                         case 3:
-                            return null
+                            return <FormStepThree step={step} setStep={setStep}/>
                         case 4:
                             return null
                         default:

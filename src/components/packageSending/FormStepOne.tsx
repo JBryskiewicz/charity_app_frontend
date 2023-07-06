@@ -1,38 +1,38 @@
-'use client'
-import {Dispatch, SetStateAction, useState} from "react";
+import {ChangeEvent, Dispatch, SetStateAction} from "react";
 import {radioOptions} from "@/utility/mockData";
+import {useDispatch, useSelector} from "react-redux";
+import {RootState} from "@/redux/store";
+import {setCategory} from "@/redux/donationSlice";
 
 type Props = {
     step: number;
     setStep: Dispatch<SetStateAction<number>>
 }
 
-const initialRadios = [false, false, false, false, false]
-
 export function FormStepOne({step, setStep}: Props) {
-    const [isChecked, setIsChecked] = useState<boolean[]>(initialRadios);
+    const category = useSelector((state: RootState) => state.donation.category);
+    const dispatch = useDispatch();
 
-    const handleClick = (index: number) => () => {
-        const updatedChecked = [...isChecked];
-        updatedChecked[index] = !updatedChecked[index];
-        setIsChecked(updatedChecked);
+    function handleRadio(event: ChangeEvent<HTMLInputElement>){
+        dispatch(setCategory(event.target.value));
     }
 
     return (
         <section className="mx-32 pt-8 package-sending-section">
             <p className="mb-24">Krok {step}/4</p>
             <h4 className="text-4xl">Zaznacz co chcesz oddać:</h4>
+            <p>TEST: {category}</p>
             <div className="flex flex-col gap-8 mt-16 mb-16">
                 {
                     radioOptions.map((e, index) => (
-                        <label key={index} className="radio-label" htmlFor="cloth-good">
+                        <label key={index} className="radio-label" htmlFor={e.name}>
                             <input
                                 className="radio-button"
                                 type="radio"
+                                name="category"
                                 value={e.name}
                                 id={e.name}
-                                checked={isChecked[index]}
-                                onClick={handleClick(index)}
+                                onChange={handleRadio}
                             />
                             {e.description}
                         </label>
@@ -42,7 +42,7 @@ export function FormStepOne({step, setStep}: Props) {
             <div className="form-button-box">
                 <button
                     className="btn btn-form-steps"
-                    onClick={() => setStep(2)}
+                    onClick={() => setStep(step + 1)}
                 >
                     Dalej
                 </button>

@@ -1,5 +1,6 @@
 import '../styles/globals.scss'
 import React from "react";
+import {Providers} from "@/redux/provider";
 
 export const metadata = {
   title: 'Oddam w dobre ręce',
@@ -10,7 +11,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
         <body>
-          {children}
+            <Providers>
+                {children}
+            </Providers>
         </body>
     </html>
   )
