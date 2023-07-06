@@ -1,4 +1,3 @@
-'use client'
 import {ChangeEvent, Dispatch, SetStateAction, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {setQuantity} from "@/redux/donationSlice";

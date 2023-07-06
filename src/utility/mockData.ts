@@ -149,3 +149,38 @@ export const radioOptions = [
         description: 'inne'
     },
 ]
+
+export const checkboxOptions: string[] = [
+    'dzieciom',
+    'samotnym matkom',
+    'bezdomnym',
+    'niepełnosprawnym',
+    'osobom starszym'
+]
+
+export const locationSelect = [
+    {
+        value: '',
+        name: 'Wybierz'
+    },
+    {
+        value: 'warszawa',
+        name: 'Warszawa'
+    },
+    {
+        value: 'poznan',
+        name: 'Poznań'
+    },
+    {
+        value: 'krakow',
+        name: 'Kraków'
+    },
+    {
+        value: 'wroclaw',
+        name: 'Wrocław'
+    },
+    {
+        value: 'katowice',
+        name: 'Katowice'
+    },
+]
