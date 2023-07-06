@@ -12,7 +12,7 @@ import {auth} from "@/firebase";
 export function Steps() {
     const [ user ] = useAuthState(auth);
 
-    const path = user === null ? '/login' : '/oddaj-rzeczy';
+    const path = user === null ? '/login' : '/send-package';
 
     return (
         <section className="flex flex-col justify-center items-center mt-14">

@@ -1,5 +1,6 @@
 'use client'
 import Link from "next/link";
+import { ReactNode } from "react";
 import {useAuthState} from "react-firebase-hooks/auth";
 import {auth} from "@/firebase";
 import {signOut} from "@firebase/auth";
@@ -10,8 +11,16 @@ type Props = {
     isHome: boolean;
 }
 
+const Loading = ({ isLoading, children }: { isLoading: boolean, children: ReactNode }) => isLoading
+    ? (<div className="flex justify-end py-4 gap-8">
+        <p className="text-font-color" style={{padding: '9px', fontSize: '16px'}}>
+            Loading...
+        </p>
+    </div>)
+    : children;
+
 export function Header({isHome}: Props) {
-    const [user] = useAuthState(auth);
+    const [user, loading] = useAuthState(auth);
 
     const visitorActions = (
         <div className="flex justify-end py-4 gap-8">
@@ -27,7 +36,7 @@ export function Header({isHome}: Props) {
     const userActions = (
         <div className="flex justify-end py-4 gap-8">
             <p className="self-center text-font-color text-lg"> Cześć {user?.email} </p>
-            <Link href={"/oddaj-rzeczy"}>
+            <Link href={"/send-package"}>
                 <button className="btn login-action">Oddaj Rzeczy</button>
             </Link>
             <Link href={"/logged-out"}>
@@ -38,7 +47,9 @@ export function Header({isHome}: Props) {
 
     return (
         <header className="mx-32">
-            {user !== null ? userActions : visitorActions}
+            <Loading isLoading={loading}>
+                {user !== null ? userActions : visitorActions}
+            </Loading>
             <nav>
                 <ul className="flex justify-end gap-8 text-lg">
                     <li className="btn navigational">

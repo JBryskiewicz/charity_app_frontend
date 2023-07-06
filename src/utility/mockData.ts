@@ -126,3 +126,61 @@ export const localsList = [
         tags: ['ubrania', 'meble', 'zabawki']
     },
 ]
+
+export const radioOptions = [
+    {
+        name: 'cloth-good',
+        description: 'ubrania, które nadają się do ponownego użycia'
+    },
+    {
+        name: 'cloth-bad',
+        description: 'ubrania, do wyrzucenia'
+    },
+    {
+        name: 'toys',
+        description: 'książki'
+    },
+    {
+        name: 'books',
+        description: 'zabawki'
+    },
+    {
+        name: 'other',
+        description: 'inne'
+    },
+]
+
+export const checkboxOptions: string[] = [
+    'dzieciom',
+    'samotnym matkom',
+    'bezdomnym',
+    'niepełnosprawnym',
+    'osobom starszym'
+]
+
+export const locationSelect = [
+    {
+        value: '',
+        name: 'Wybierz'
+    },
+    {
+        value: 'warszawa',
+        name: 'Warszawa'
+    },
+    {
+        value: 'poznan',
+        name: 'Poznań'
+    },
+    {
+        value: 'krakow',
+        name: 'Kraków'
+    },
+    {
+        value: 'wroclaw',
+        name: 'Wrocław'
+    },
+    {
+        value: 'katowice',
+        name: 'Katowice'
+    },
+]

@@ -9,7 +9,7 @@ import {auth} from "@/firebase";
 export function Hero() {
     const [ user ] = useAuthState(auth);
 
-    const path = user === null ? '/login' : '/oddaj-rzeczy';
+    const path = user === null ? '/login' : '/send-package';
 
     return (
         <section className="flex flex-col items-end justify-center mx-32 hero-section">

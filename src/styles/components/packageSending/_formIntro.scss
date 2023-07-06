@@ -1,0 +1,45 @@
+.form-intro-background {
+  height: calc(100vh);
+  width: 960px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.intro-step-container {
+  color: $font_color;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &::Before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 135px;
+    height: 135px;
+    bottom: -20%;
+    left: -15%;
+    border: 2px solid $font_color;
+    rotate: 45deg;
+  }
+  h4 {
+    font-size: 1.875rem;
+    text-align: center;
+  }
+
+  p {
+    font-size: 1.375rem;
+    width: 100px;
+    text-align: center;
+  }
+}
+
+.form-warning-section {
+  height: 180px;
+  color: $font_color;
+  background-color: $accent_color;
+}
