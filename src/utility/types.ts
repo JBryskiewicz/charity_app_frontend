@@ -1,3 +1,5 @@
+import {Dispatch, SetStateAction} from "react";
+
 export type Charity = {
     name: string;
     goal: string;
@@ -32,4 +34,13 @@ export type Donation = {
     Date: string;
     Time: string;
     courierNote: string;
+}
+
+export type DonationFormProps = {
+    step: number;
+    setStep: Dispatch<SetStateAction<number>>
+}
+
+export interface DonationNavButtonProps extends DonationFormProps {
+    isFirst: boolean;
 }

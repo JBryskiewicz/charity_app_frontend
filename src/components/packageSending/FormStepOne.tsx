@@ -1,15 +1,12 @@
-import {ChangeEvent, Dispatch, SetStateAction} from "react";
+import {ChangeEvent} from "react";
 import {radioOptions} from "@/utility/mockData";
 import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "@/redux/store";
 import {setCategory} from "@/redux/donationSlice";
+import {DonationFormProps} from "@/utility/types";
+import {DonationNavButtons} from "@/components/reusable/DonationNavButtons";
 
-type Props = {
-    step: number;
-    setStep: Dispatch<SetStateAction<number>>
-}
-
-export function FormStepOne({step, setStep}: Props) {
+export function FormStepOne({step, setStep}: DonationFormProps) {
     const category = useSelector((state: RootState) => state.donation.category);
     const dispatch = useDispatch();
 
@@ -39,14 +36,7 @@ export function FormStepOne({step, setStep}: Props) {
                     ))
                 }
             </div>
-            <div className="form-button-box">
-                <button
-                    className="btn btn-form-steps"
-                    onClick={() => setStep(step + 1)}
-                >
-                    Dalej
-                </button>
-            </div>
+            <DonationNavButtons isFirst={true} step={step} setStep={setStep}/>
         </section>
     );
 }

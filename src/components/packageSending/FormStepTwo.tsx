@@ -1,14 +1,11 @@
-import {ChangeEvent, Dispatch, SetStateAction, useState} from "react";
+import {ChangeEvent} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {setQuantity} from "@/redux/donationSlice";
 import {RootState} from "@/redux/store";
+import {DonationFormProps} from "@/utility/types";
+import {DonationNavButtons} from "@/components/reusable/DonationNavButtons";
 
-type Props = {
-    step: number;
-    setStep: Dispatch<SetStateAction<number>>
-}
-
-export function FormStepTwo({step, setStep}: Props) {
+export function FormStepTwo({step, setStep}: DonationFormProps) {
     const quantity = useSelector((state: RootState) => state.donation.quantity);
     const dispatch = useDispatch();
 
@@ -31,20 +28,7 @@ export function FormStepTwo({step, setStep}: Props) {
                     className="bag-number"
                 />
             </div>
-            <div className="form-button-box">
-                <button
-                    className="btn btn-form-steps mr-12"
-                    onClick={() => setStep(step - 1)}
-                >
-                    Wstecz
-                </button>
-                <button
-                    className="btn btn-form-steps"
-                    onClick={() => setStep(step + 1)}
-                >
-                    Dalej
-                </button>
-            </div>
+            <DonationNavButtons isFirst={false} step={step} setStep={setStep}/>
         </section>
     );
 }
