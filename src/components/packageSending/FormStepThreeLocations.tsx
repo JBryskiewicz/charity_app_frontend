@@ -22,7 +22,7 @@ export function FormStepThreeLocations() {
                             locationSelect.map((element) => (
                                 <option
                                     key={element.value}
-                                    value={element.value}
+                                    value={element.name}
                                 >
                                     {element.name}
                                 </option>

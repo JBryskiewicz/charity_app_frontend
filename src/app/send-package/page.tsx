@@ -9,6 +9,7 @@ import {useState} from "react";
 import {FormStepTwo} from "@/components/packageSending/FormStepTwo";
 import {FormStepThree} from "@/components/packageSending/FormStepThree";
 import {FormStepFour} from "@/components/packageSending/FormStepFour";
+import {FormSummary} from "@/components/packageSending/FormSummary";
 
 function PackageSending() {
     const [step, setStep] = useState<number>(1);
@@ -32,6 +33,8 @@ function PackageSending() {
                             return <FormStepThree step={step} setStep={setStep}/>
                         case 4:
                             return <FormStepFour step={step} setStep={setStep}/>
+                        case 5:
+                            return <FormSummary step={step} setStep={setStep}/>
                         default:
                             return null
                     }

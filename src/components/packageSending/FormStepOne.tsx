@@ -26,9 +26,9 @@ export function FormStepOne({step, setStep}: DonationFormProps) {
                                 className="radio-button"
                                 type="radio"
                                 name="category"
-                                value={e.name}
+                                value={e.description}
                                 id={e.name}
-                                checked={category === e.name}
+                                checked={category === e.description}
                                 onChange={handleRadio}
                             />
                             {e.description}
