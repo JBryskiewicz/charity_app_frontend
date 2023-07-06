@@ -31,8 +31,8 @@ export type Donation = {
     city: string;
     postCode: string;
     phoneNumber: string;
-    Date: string;
-    Time: string;
+    date: string;
+    time: string;
     courierNote: string;
 }
 

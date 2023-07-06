@@ -2,8 +2,8 @@ import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {Donation} from "@/utility/types";
 
 const initialState: Donation = {
-    Date: new Date().toDateString(),
-    Time: new Date().toDateString(),
+    date: "",
+    time: "",
     category: "",
     charityTargets: [],
     city: "",
@@ -35,6 +35,27 @@ export const donationSlice = createSlice({
         setSpecifiedOrganization: (state, action: PayloadAction<string>) => {
             state.specifiedOrganization = action.payload;
         },
+        setStreet: (state, action: PayloadAction<string>) => {
+            state.street = action.payload;
+        },
+        setCity: (state, action: PayloadAction<string>) => {
+            state.city = action.payload;
+        },
+        setPostCode: (state, action: PayloadAction<string>) => {
+            state.postCode = action.payload;
+        },
+        setPhoneNumber: (state, action: PayloadAction<string>) => {
+            state.phoneNumber = action.payload;
+        },
+        setDate: (state, action: PayloadAction<string>) => {
+            state.date = action.payload;
+        },
+        setTime: (state, action: PayloadAction<string>) => {
+            state.time = action.payload;
+        },
+        setCourierNote: (state, action: PayloadAction<string>) => {
+            state.courierNote = action.payload;
+        },
     }
 })
 
@@ -45,4 +66,11 @@ export const {
     setLocation,
     setTargets,
     setSpecifiedOrganization,
+    setStreet,
+    setCity,
+    setPostCode,
+    setPhoneNumber,
+    setDate,
+    setTime,
+    setCourierNote
 } = donationSlice.actions;

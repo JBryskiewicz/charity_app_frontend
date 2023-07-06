@@ -18,7 +18,6 @@ export function FormStepOne({step, setStep}: DonationFormProps) {
         <section className="mx-32 pt-8 package-sending-section">
             <p className="mb-24">Krok {step}/4</p>
             <h4 className="text-4xl">Zaznacz co chcesz oddać:</h4>
-            <p>TEST: {category}</p>
             <div className="flex flex-col gap-8 mt-16 mb-16">
                 {
                     radioOptions.map((e, index) => (
@@ -29,6 +28,7 @@ export function FormStepOne({step, setStep}: DonationFormProps) {
                                 name="category"
                                 value={e.name}
                                 id={e.name}
+                                checked={category === e.name}
                                 onChange={handleRadio}
                             />
                             {e.description}

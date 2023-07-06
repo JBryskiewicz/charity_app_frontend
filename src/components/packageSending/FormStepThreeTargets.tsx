@@ -29,6 +29,7 @@ export function FormStepThreeTargets() {
                                 value={element}
                                 type="checkbox"
                                 className="charity-target-checkbox"
+                                checked={charityTargets.includes(element)}
                                 onChange={handleCheckbox}
                             />
                             {element}
