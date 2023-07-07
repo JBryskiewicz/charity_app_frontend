@@ -1,11 +1,25 @@
 import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "@/redux/store";
-import {ChangeEvent} from "react";
+import {ChangeEvent, Dispatch, SetStateAction, useEffect} from "react";
 import {setCity, setPhoneNumber, setPostCode, setStreet} from "@/redux/donationSlice";
 
-export function FormStepFourAddress() {
-    const { street, city, postCode, phoneNumber } = useSelector((state: RootState) => state.donation);
+type Props = {
+    setAreFieldsValidated: Dispatch<SetStateAction<boolean[]>>
+}
+
+export function FormStepFourAddress({setAreFieldsValidated}: Props) {
+    const {street, city, postCode, phoneNumber} = useSelector((state: RootState) => state.donation);
     const dispatch = useDispatch();
+
+    useEffect(() => {
+        const validator = (
+            street !== "" &&
+            city !== "" &&
+            postCode !== "" &&
+            phoneNumber !== ""
+        );
+        setAreFieldsValidated((prevState) => [validator, ...prevState.slice(1)])
+    }, [street, city, postCode, phoneNumber, setAreFieldsValidated])
 
     const handleInput = (identity: string) => (event: ChangeEvent<HTMLInputElement>) => {
         switch (identity) {
@@ -31,10 +45,10 @@ export function FormStepFourAddress() {
             <p>Adres odbioru:</p>
             <label
                 htmlFor="street">
-                Ulica
+                *Ulica
                 <input
                     value={street}
-                    onChange={handleInput( 'street')}
+                    onChange={handleInput('street')}
                     type="text"
                     id="street"
                     placeholder="ul.Prosta 19"
@@ -42,10 +56,10 @@ export function FormStepFourAddress() {
             </label>
             <label
                 htmlFor="city">
-                Miasto
+                *Miasto
                 <input
                     value={city}
-                    onChange={handleInput( 'city')}
+                    onChange={handleInput('city')}
                     type="text"
                     id="city"
                     placeholder="Warszawa"
@@ -53,10 +67,10 @@ export function FormStepFourAddress() {
             </label>
             <label
                 htmlFor="postCode">
-                Kod pocztowy
+                *Kod pocztowy
                 <input
                     value={postCode}
-                    onChange={handleInput( 'code')}
+                    onChange={handleInput('code')}
                     type="text"
                     id="postCode"
                     placeholder="00-001"
@@ -64,7 +78,7 @@ export function FormStepFourAddress() {
             </label>
             <label
                 htmlFor="phoneNumber">
-                Numer telefonu
+                *Numer telefonu
                 <input
                     value={phoneNumber}
                     onChange={handleInput('phone')}

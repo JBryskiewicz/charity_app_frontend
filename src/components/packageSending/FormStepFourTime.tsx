@@ -1,11 +1,20 @@
 import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "@/redux/store";
-import {ChangeEvent} from "react";
+import {ChangeEvent, Dispatch, SetStateAction, useEffect} from "react";
 import {setCourierNote, setDate, setTime} from "@/redux/donationSlice";
 
-export function FormStepFourTime() {
+type Props = {
+    setAreFieldsValidated: Dispatch<SetStateAction<boolean[]>>
+}
+
+export function FormStepFourTime({setAreFieldsValidated}: Props) {
     const { date, time, courierNote } = useSelector((state: RootState) => state.donation);
     const dispatch = useDispatch();
+
+    useEffect(() => {
+        const validator = (date !== "" && time !== "");
+        setAreFieldsValidated((prevState) => [prevState[0], validator, ...prevState.slice(2)])
+    }, [date, time, setAreFieldsValidated])
 
     const handleInput = (identity: string) => (
         event: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>
@@ -31,7 +40,7 @@ export function FormStepFourTime() {
             <label
                 htmlFor="date"
             >
-                Data
+                *Data
                 <input
                     id="date"
                     type="text"
@@ -43,7 +52,7 @@ export function FormStepFourTime() {
             <label
                 htmlFor="time"
             >
-                Godzina
+                *Godzina
                 <input
                     id="time"
                     type="text"

@@ -10,6 +10,7 @@ import {FormStepTwo} from "@/components/packageSending/FormStepTwo";
 import {FormStepThree} from "@/components/packageSending/FormStepThree";
 import {FormStepFour} from "@/components/packageSending/FormStepFour";
 import {FormSummary} from "@/components/packageSending/FormSummary";
+import {FormDonationThanks} from "@/components/packageSending/FormDonationThanks";
 
 function PackageSending() {
     const [step, setStep] = useState<number>(1);
@@ -18,7 +19,7 @@ function PackageSending() {
         <>
             <Header isHome={false}/>
             <FormIntro/>
-            <FormWarning/>
+            { step === 6 ? null : <FormWarning/>}
             <div style={{
                 backgroundImage: `url(${formBackground.src})`,
                 backgroundSize: 'cover'
@@ -35,6 +36,8 @@ function PackageSending() {
                             return <FormStepFour step={step} setStep={setStep}/>
                         case 5:
                             return <FormSummary step={step} setStep={setStep}/>
+                        case 6:
+                            return <FormDonationThanks/>
                         default:
                             return null
                     }

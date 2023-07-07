@@ -1,6 +1,6 @@
 import {DonationNavButtonProps} from "@/utility/types";
 
-export function DonationNavButtons({step, setStep, isFirst}: DonationNavButtonProps) {
+export function DonationNavButtons({step, setStep, isFirst, isValidated}: DonationNavButtonProps) {
 
     if (!isFirst) {
         return (
@@ -12,6 +12,7 @@ export function DonationNavButtons({step, setStep, isFirst}: DonationNavButtonPr
                     Wstecz
                 </button>
                 <button
+                    disabled={ !isValidated ? true : false }
                     className="btn btn-form-steps"
                     onClick={() => setStep(step + 1)}
                 >
@@ -24,6 +25,7 @@ export function DonationNavButtons({step, setStep, isFirst}: DonationNavButtonPr
     return (
         <div className="form-button-box">
             <button
+                disabled={ !isValidated ? true : false }
                 className="btn btn-form-steps"
                 onClick={() => setStep(step + 1)}
             >
