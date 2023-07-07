@@ -56,6 +56,7 @@ export const donationSlice = createSlice({
         setCourierNote: (state, action: PayloadAction<string>) => {
             state.courierNote = action.payload;
         },
+        RESET_STATE: () => initialState
     }
 })
 
@@ -72,5 +73,6 @@ export const {
     setPhoneNumber,
     setDate,
     setTime,
-    setCourierNote
+    setCourierNote,
+    RESET_STATE
 } = donationSlice.actions;

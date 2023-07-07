@@ -1,10 +1,23 @@
+'use client'
 import {DonationFormProps} from "@/utility/types";
-import {DonationNavButtons} from "@/components/reusable/DonationNavButtons";
 import {FormSummaryHandover} from "@/components/packageSending/FormSummaryHandover";
 import {FormSummaryAddress} from "@/components/packageSending/FormSummaryAddress";
 import {FormSummaryDate} from "@/components/packageSending/FormSummaryDate";
+import {FormEvent} from "react";
+import {useDispatch, useSelector} from "react-redux";
+import {RootState} from "@/redux/store";
+import {RESET_STATE} from "@/redux/donationSlice";
 
 export function FormSummary({step, setStep}: DonationFormProps) {
+    const donation = useSelector((state: RootState) => state.donation);
+    const dispatch = useDispatch();
+
+    async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+        event.preventDefault();
+        await console.log(donation); // TODO firebase db post with axios
+        await dispatch(RESET_STATE());
+        await setStep(step + 1);
+    }
 
     return (
         <section className="flex flex-col mx-32 pt-16 package-sending-section">
@@ -16,11 +29,22 @@ export function FormSummary({step, setStep}: DonationFormProps) {
                     <FormSummaryDate/>
                 </div>
             </div>
-            <DonationNavButtons
-                isFirst={false}
-                step={step}
-                setStep={setStep}
-            />
+            <form onSubmit={handleSubmit}>
+                <div className="form-button-box">
+                    <button
+                        className="btn btn-form-steps mr-12"
+                        onClick={() => setStep(step - 1)}
+                    >
+                        Wstecz
+                    </button>
+                    <button
+                        className="btn btn-form-steps btn-form-steps-submit"
+                        type="submit"
+                    >
+                        Potwierdzam
+                    </button>
+                </div>
+            </form>
         </section>
     );
 }

@@ -91,6 +91,18 @@
   border-color: $font_color;
   padding: .625rem 1rem;
 
+  &-submit {
+    width: 260px;
+  }
+
+  &:disabled {
+    background-color: rgba($secondary_color, .35);
+  }
+
+  &:disabled:hover {
+    background-color: rgba($secondary_color, .35);
+  }
+
   &:hover {
     background-color: rgba($accent_color, 0.1);
     transition: .75s;

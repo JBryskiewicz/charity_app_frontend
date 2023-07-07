@@ -43,5 +43,5 @@ export type DonationFormProps = {
 
 export interface DonationNavButtonProps extends DonationFormProps {
     isFirst: boolean;
-    isValidated?: boolean;
+    isValidated: boolean;
 }
