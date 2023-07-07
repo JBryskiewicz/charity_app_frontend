@@ -7,6 +7,8 @@ import {FormEvent} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "@/redux/store";
 import {RESET_STATE} from "@/redux/donationSlice";
+import {addDoc, collection} from "@firebase/firestore";
+import {firestore} from "@/firebase";
 
 export function FormSummary({step, setStep}: DonationFormProps) {
     const donation = useSelector((state: RootState) => state.donation);
@@ -14,7 +16,15 @@ export function FormSummary({step, setStep}: DonationFormProps) {
 
     async function handleSubmit(event: FormEvent<HTMLFormElement>) {
         event.preventDefault();
-        await console.log(donation); // TODO firebase db post with axios
+
+        try {
+            await addDoc(collection(firestore, "donations"), {
+                donation: donation,
+            })
+        } catch (e) {
+            console.log("Attempt to submit data to database resulted with: " + e);
+        }
+
         await dispatch(RESET_STATE());
         await setStep(step + 1);
     }
