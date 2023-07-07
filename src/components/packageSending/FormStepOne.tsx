@@ -1,4 +1,4 @@
-import {ChangeEvent} from "react";
+import {ChangeEvent, useEffect, useState} from "react";
 import {radioOptions} from "@/utility/mockData";
 import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "@/redux/store";
@@ -7,11 +7,19 @@ import {DonationFormProps} from "@/utility/types";
 import {DonationNavButtons} from "@/components/reusable/DonationNavButtons";
 
 export function FormStepOne({step, setStep}: DonationFormProps) {
+    const [isValidated, setIsValidated] = useState<boolean>(true);
     const category = useSelector((state: RootState) => state.donation.category);
     const dispatch = useDispatch();
 
-    function handleRadio(event: ChangeEvent<HTMLInputElement>){
+    useEffect(() => {
+        if (category === "") {
+            setIsValidated(false);
+        }
+    }, [category])
+
+    function handleRadio(event: ChangeEvent<HTMLInputElement>) {
         dispatch(setCategory(event.target.value));
+        setIsValidated(true);
     }
 
     return (
@@ -36,7 +44,14 @@ export function FormStepOne({step, setStep}: DonationFormProps) {
                     ))
                 }
             </div>
-            <DonationNavButtons isFirst={true} step={step} setStep={setStep}/>
+            {!isValidated ? <p className="text-red-800">* Musisz wybrać kategorię aby przejść dalej</p> : null}
+            <DonationNavButtons
+                isFirst={true}
+                isValidated={isValidated}
+                step={step}
+                setStep={setStep}
+            />
+
         </section>
     );
 }

@@ -1,4 +1,4 @@
-import {ChangeEvent} from "react";
+import {ChangeEvent, useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {setQuantity} from "@/redux/donationSlice";
 import {RootState} from "@/redux/store";
@@ -6,13 +6,21 @@ import {DonationFormProps} from "@/utility/types";
 import {DonationNavButtons} from "@/components/reusable/DonationNavButtons";
 
 export function FormStepTwo({step, setStep}: DonationFormProps) {
+    const [isValidated, setIsValidated] = useState<boolean>(true);
     const quantity = useSelector((state: RootState) => state.donation.quantity);
     const dispatch = useDispatch();
+
+    useEffect(() => {
+        if (parseInt(quantity) <= 0) {
+            setIsValidated(false);
+        }
+    }, [quantity])
 
     function handleQuantity(event: ChangeEvent<HTMLInputElement>) {
         const input = parseInt(event.target.value);
         const newQuantity = input < 0 ? '0' : event.target.value;
         dispatch(setQuantity(newQuantity));
+        setIsValidated(true);
     }
 
     return (
@@ -28,7 +36,13 @@ export function FormStepTwo({step, setStep}: DonationFormProps) {
                     className="bag-number"
                 />
             </div>
-            <DonationNavButtons isFirst={false} step={step} setStep={setStep}/>
+            {!isValidated ? <p className="text-red-800">* Możesz wysłać minumum 1 paczkę</p> : null}
+            <DonationNavButtons
+                isFirst={false}
+                isValidated={isValidated}
+                step={step}
+                setStep={setStep}
+            />
         </section>
     );
 }

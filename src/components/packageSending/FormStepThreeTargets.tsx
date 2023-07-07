@@ -1,20 +1,32 @@
 import {checkboxOptions} from "@/utility/mockData";
-import {ChangeEvent} from "react";
+import {ChangeEvent, Dispatch, SetStateAction, useEffect} from "react";
 import {setTargets} from "@/redux/donationSlice";
 import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "@/redux/store";
 
-export function FormStepThreeTargets() {
+type Props = {
+    setAreFieldsValidated: Dispatch<SetStateAction<boolean[]>>
+}
+
+export function FormStepThreeTargets({setAreFieldsValidated}: Props) {
     const charityTargets = useSelector((state: RootState) => state.donation.charityTargets);
     const dispatch = useDispatch();
+
+    useEffect(() => {
+        const validator = !charityTargets ? false : true;
+        setAreFieldsValidated((prevState) => [prevState[0], validator, ...prevState.slice(2)])
+    }, [charityTargets, setAreFieldsValidated])
 
     function handleCheckbox(event: ChangeEvent<HTMLInputElement>){
         const value = event.target.value;
         const targetsCopy = [...charityTargets];
 
+        setAreFieldsValidated((prevState) => [prevState[0], true, ...prevState.slice(2)])
+
         event.target.checked
             ? dispatch(setTargets([...targetsCopy, value]))
             : dispatch(setTargets(targetsCopy.filter((e) => e !== value)))
+
     }
 
     return (
