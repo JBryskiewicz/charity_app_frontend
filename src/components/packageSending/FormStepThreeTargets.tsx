@@ -13,7 +13,7 @@ export function FormStepThreeTargets({setAreFieldsValidated}: Props) {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        const validator = !charityTargets ? false : true;
+        const validator = !charityTargets.length ? false : true;
         setAreFieldsValidated((prevState) => [prevState[0], validator, ...prevState.slice(2)])
     }, [charityTargets, setAreFieldsValidated])
 

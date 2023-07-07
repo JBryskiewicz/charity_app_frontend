@@ -20,7 +20,7 @@ export function FormStepThree({step, setStep}: DonationFormProps) {
             <FormStepThreeLocations setAreFieldsValidated={setAreFieldsValidated}/>
             <FormStepThreeTargets setAreFieldsValidated={setAreFieldsValidated}/>
             <FormStepThreeOrganization/>
-            {!isValidated ? <p className="text-red-800">* Musisz wybrać lokalizacje i przynajmniej jedną grupę aby kontynuować</p> : null}
+            {!isValidated ? <p className="text-red-800 donation-instruction-warning">* Musisz wybrać lokalizacje i przynajmniej jedną grupę aby kontynuować</p> : null}
             <DonationNavButtons
                 isFirst={false}
                 isValidated={isValidated}

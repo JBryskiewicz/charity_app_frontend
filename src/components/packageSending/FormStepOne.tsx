@@ -44,7 +44,7 @@ export function FormStepOne({step, setStep}: DonationFormProps) {
                     ))
                 }
             </div>
-            {!isValidated ? <p className="text-red-800">* Musisz wybrać kategorię aby przejść dalej</p> : null}
+            {!isValidated ? <p className="text-red-800 donation-instruction-warning">* Musisz wybrać kategorię aby przejść dalej</p> : null}
             <DonationNavButtons
                 isFirst={true}
                 isValidated={isValidated}

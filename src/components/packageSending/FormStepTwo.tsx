@@ -36,7 +36,7 @@ export function FormStepTwo({step, setStep}: DonationFormProps) {
                     className="bag-number"
                 />
             </div>
-            {!isValidated ? <p className="text-red-800">* Możesz wysłać minumum 1 paczkę</p> : null}
+            {!isValidated ? <p className="text-red-800 donation-instruction-warning">* Możesz wysłać minumum 1 paczkę</p> : null}
             <DonationNavButtons
                 isFirst={false}
                 isValidated={isValidated}
