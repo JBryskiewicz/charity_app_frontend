@@ -1,21 +1,26 @@
 'use client'
 import Link from "next/link";
-import React from "react";
+import React, {useState} from "react";
 import {ErrorMessage, Field, Formik, FormikHelpers} from "formik";
 import {LoginFormValues} from "@/utility/types";
 import {LoginValidationSchema} from "@/utility/formValidators";
 import {useRouter} from "next/navigation";
-import {useSignInWithEmailAndPassword} from "react-firebase-hooks/auth";
 import {auth} from "@/firebase";
+import {signInWithEmailAndPassword} from "@firebase/auth";
 
 export function LoginForm() {
     const router = useRouter();
-    const [ signInWithEmailAndPassword ] = useSignInWithEmailAndPassword(auth);
+    const [loginError, setLoginError] = useState<string>('');
+
     async function handleSubmit(values: LoginFormValues, {setSubmitting, resetForm}: FormikHelpers<LoginFormValues>) {
-        await signInWithEmailAndPassword(values.email, values.password);
-        resetForm();
-        setSubmitting(false);
-        await router.push('/');
+        await signInWithEmailAndPassword(auth, values.email, values.password)
+            .then(userCredential => {
+                resetForm();
+                setSubmitting(false);
+                router.push('/');
+            }).catch(error => {
+                setLoginError('Hasło lub email są niepoprawne');
+            })
     }
 
     return (
@@ -57,6 +62,7 @@ export function LoginForm() {
                             placeholder="********"
                         />
                         <ErrorMessage name="password" component="div" className="contact-form-error"/>
+                        <p className="contact-form-error">{loginError}</p>
                     </div>
                     <div className="flex gap-72">
                         <Link
