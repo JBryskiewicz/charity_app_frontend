@@ -1,5 +1,6 @@
 import instagram from "@/assets/images/Instagram.png";
 import facebook from "@/assets/images/Facebook.png";
+import Image from "next/image";
 
 export function Footer() {
     return (
@@ -7,15 +8,15 @@ export function Footer() {
             <p className="text-lg">Copyright by Coders Lab</p>
             <div className="flex gap-8">
                 <a href="https://instagram.com">
-                    <img
-                        src={instagram.src}
+                    <Image
+                        src={instagram}
                         alt="instagram icon"
                         className="footer-icon"
                     />
                 </a>
                 <a href="https://facebook.com/">
-                    <img
-                        src={facebook.src}
+                    <Image
+                        src={facebook}
                         alt="facebook icon"
                         className="footer-icon"
                     />
