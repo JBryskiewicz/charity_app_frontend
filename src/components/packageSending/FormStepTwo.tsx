@@ -20,7 +20,9 @@ export function FormStepTwo({step, setStep}: DonationFormProps) {
         const input = parseInt(event.target.value);
         const newQuantity = input < 0 ? '0' : event.target.value;
         dispatch(setQuantity(newQuantity));
-        setIsValidated(true);
+        if(newQuantity !== '0') {
+            setIsValidated(true);
+        }
     }
 
     return (
