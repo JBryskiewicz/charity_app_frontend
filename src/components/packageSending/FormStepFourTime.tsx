@@ -2,6 +2,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "@/redux/store";
 import {ChangeEvent, Dispatch, SetStateAction, useEffect} from "react";
 import {setCourierNote, setDate, setTime} from "@/redux/donationSlice";
+import {dateValidator, timeValidator} from "@/utility/formValidators";
 
 type Props = {
     setAreFieldsValidated: Dispatch<SetStateAction<boolean[]>>
@@ -12,7 +13,12 @@ export function FormStepFourTime({setAreFieldsValidated}: Props) {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        const validator = (date !== "" && time !== "");
+        const validator = (
+            date !== "" &&
+            dateValidator(date) &&
+            time !== "" &&
+            timeValidator(time)
+        );
         setAreFieldsValidated((prevState) => [prevState[0], validator, ...prevState.slice(2)])
     }, [date, time, setAreFieldsValidated])
 

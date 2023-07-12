@@ -2,6 +2,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "@/redux/store";
 import {ChangeEvent, Dispatch, SetStateAction, useEffect} from "react";
 import {setCity, setPhoneNumber, setPostCode, setStreet} from "@/redux/donationSlice";
+import {phoneNumberValidator, postalCodeValidator} from "@/utility/formValidators";
 
 type Props = {
     setAreFieldsValidated: Dispatch<SetStateAction<boolean[]>>
@@ -16,7 +17,9 @@ export function FormStepFourAddress({setAreFieldsValidated}: Props) {
             street !== "" &&
             city !== "" &&
             postCode !== "" &&
-            phoneNumber !== ""
+            postalCodeValidator(postCode) &&
+            phoneNumber !== "" &&
+            phoneNumberValidator(phoneNumber)
         );
         setAreFieldsValidated((prevState) => [validator, ...prevState.slice(1)])
     }, [street, city, postCode, phoneNumber, setAreFieldsValidated])
@@ -51,7 +54,7 @@ export function FormStepFourAddress({setAreFieldsValidated}: Props) {
                     onChange={handleInput('street')}
                     type="text"
                     id="street"
-                    placeholder="ul.Prosta 19"
+                    placeholder="Prosta 19"
                 />
             </label>
             <label

@@ -21,7 +21,7 @@ export function FormStepFour({step, setStep}: DonationFormProps) {
                 <FormStepFourAddress setAreFieldsValidated={setAreFieldsValidated}/>
                 <FormStepFourTime setAreFieldsValidated={setAreFieldsValidated}/>
             </div>
-            {!isValidated ? <p className="text-red-800 donation-instruction-warning">* Musisz wypełnić wszystkie pola z gwiazdką</p> : null}
+            {!isValidated ? <p className="text-red-800 donation-instruction-warning">* Musisz wypełnić wszystkie pola z gwiazdką i zgodnie z przykładem</p> : null}
             <DonationNavButtons
                 isFirst={false}
                 isValidated={isValidated}

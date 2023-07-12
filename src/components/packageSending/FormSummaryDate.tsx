@@ -15,8 +15,10 @@ export function FormSummaryDate() {
                 <p>Godzina:</p>
                 <p>{donation.time}</p>
             </div>
-            <div>
+            <div className="mb-2">
                 <p>Uwagi dla kuriera:</p>
+            </div>
+            <div className="courier-message-box">
                 <p>{donation.courierNote}</p>
             </div>
         </div>
