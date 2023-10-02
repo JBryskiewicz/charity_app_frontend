@@ -3,7 +3,7 @@ import {useEffect, useState} from "react";
 import {DecorativeImage} from "@/components/reusable/DecorativeImage";
 import {FoundationsList} from "@/components/homepage/FoundationsList";
 import {Charity} from "@/utility/types";
-import {foundationList, institutionList, localsList} from "@/utility/mockData";
+import {foundationList, institutionList, localsList} from "@/utility/mocks/mockData";
 
 export function Foundations() {
     const [tab, setTab] = useState<number>(0);

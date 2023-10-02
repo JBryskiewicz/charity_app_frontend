@@ -1,4 +1,4 @@
-import {foundationList, institutionList, localsList} from "@/utility/mockData";
+import {foundationList} from "@/utility/mocks/mockData";
 import {render, screen} from "@testing-library/react";
 import {FoundationsList} from "@/components/homepage/FoundationsList";
 import user from "@testing-library/user-event";
