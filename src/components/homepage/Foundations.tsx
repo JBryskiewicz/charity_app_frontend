@@ -42,7 +42,7 @@ export function Foundations() {
                     className={`btn btn-foundations ${tab === 1 ? 'btn-active' : null}`}
                     onClick={() => setTab(1)}
                 >
-                    Organizacją pozarządowym
+                    Organizacjom pozarządowym
                 </button>
                 <button
                     className={`btn btn-foundations ${tab === 2 ? 'btn-active' : null}`}
