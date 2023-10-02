@@ -1,4 +1,4 @@
-import {checkboxOptions} from "@/utility/mockData";
+import {checkboxOptions} from "@/utility/mocks/mockData";
 import {ChangeEvent, Dispatch, SetStateAction, useEffect} from "react";
 import {setTargets} from "@/redux/donationSlice";
 import {useDispatch, useSelector} from "react-redux";

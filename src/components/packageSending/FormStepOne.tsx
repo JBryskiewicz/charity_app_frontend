@@ -1,5 +1,5 @@
 import {ChangeEvent, useEffect, useState} from "react";
-import {radioOptions} from "@/utility/mockData";
+import {radioOptions} from "@/utility/mocks/mockData";
 import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "@/redux/store";
 import {setCategory} from "@/redux/donationSlice";

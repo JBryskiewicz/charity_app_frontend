@@ -1,4 +1,4 @@
-import {locationSelect} from "@/utility/mockData";
+import {locationSelect} from "@/utility/mocks/mockData";
 import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "@/redux/store";
 import {ChangeEvent, Dispatch, SetStateAction, useEffect} from "react";

@@ -3,7 +3,7 @@ import {useEffect, useState} from "react";
 import {DecorativeImage} from "@/components/reusable/DecorativeImage";
 import {FoundationsList} from "@/components/homepage/FoundationsList";
 import {Charity} from "@/utility/types";
-import {foundationList, institutionList, localsList} from "@/utility/mockData";
+import {foundationList, institutionList, localsList} from "@/utility/mocks/mockData";
 
 export function Foundations() {
     const [tab, setTab] = useState<number>(0);
@@ -42,7 +42,7 @@ export function Foundations() {
                     className={`btn btn-foundations ${tab === 1 ? 'btn-active' : null}`}
                     onClick={() => setTab(1)}
                 >
-                    Organizacją pozarządowym
+                    Organizacjom pozarządowym
                 </button>
                 <button
                     className={`btn btn-foundations ${tab === 2 ? 'btn-active' : null}`}
